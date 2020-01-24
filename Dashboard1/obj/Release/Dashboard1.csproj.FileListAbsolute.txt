@@ -1,0 +1,6 @@
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\Dashboard1.csprojAssemblyReference.cache
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\Employee.g.cs
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\MainWindow.g.cs
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\App.g.cs
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\Dashboard1_MarkupCompile.cache
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Release\Dashboard1_MarkupCompile.lref
