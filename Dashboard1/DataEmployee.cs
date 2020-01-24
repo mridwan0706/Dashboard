@@ -11,7 +11,7 @@ namespace Dashboard1
 {
     public  class DataEmployee 
     {
-        public string Id{ get; set; }
+        
         public string Name { get; set; }
         public string PlaceBirth { get; set; }
         public string BirthDate { get; set; }
@@ -21,9 +21,9 @@ namespace Dashboard1
         public string Address { get; set; }
         public string Phone { get; set; }
         public string NPWP { get; set; }
-        public string Graduate { get; set; }
-        public string JoinDate { get; set; }
-        public string Status { get; set; }
+        public string Bachelor { get; set; }
+        public string University { get; set; }
+        public string JoinDate { get; set; }        
         public string Departmen_Id { get; set; }
     }
 }

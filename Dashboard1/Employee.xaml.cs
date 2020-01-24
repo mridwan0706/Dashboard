@@ -36,22 +36,23 @@ namespace Dashboard1
 
             
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-            var check = sqlCon.Execute("EXEC SP_Insert_Employee @Id,@Name,@PlaceBirth,@BirthDate,@NIK,@Religion,@Email,@Address,@Phone,@NPWP,@Graduate,@JoinDate,@Status,@Departmen_Id",
-                new {
-                    Id = txtIdEmp.Text,
-                    Name = txtNameEmp.Text,
-                    PlaceBirth = txtPlaceBirth.Text,
-                    BirthDay = Convert.ToDateTime(dpBirthDay.SelectedDate).ToString("yyyy-MM-dd"),
-                    NIK = txtNIK.Text,
-                    Religion = txtReligion.Text,
-                    Email = txtEmail.Text,
-                    Address = txtAddress.Text,
-                    Phone = txtPhone.Text,
-                    NPWP = txtNPWP.Text,
-                    Graduate = txtGraduate.Text,
-                    JoinDate = Convert.ToDateTime(dpJoinDate.SelectedDate).ToString("yyyy-MM-dd"),
-                    Status = txtStatus.Text,
-                    Departmen_Id = txtDepId.Text
+            var check = sqlCon.Execute("EXEC SP_Insert_Employee @Name,@PlaceBirth,@BirthDate,@NIK,@Religion,@Email,@Address,@Phone,@NPWP,@Bachelor,@University,@JoinDate,@Departmen_Id",
+                new {                    
+                    //Name = txtNameEmp.Text,
+                    //PlaceBirth = txtPlaceBirth.Text,
+                    ////BirthDay = Convert.ToDateTime(dpBirthDay.SelectedDate).ToString("yyyy-MM-dd"),
+                    //BirthDay = dpBirthDay.SelectedDate,
+                    //NIK = txtNIK.Text,
+                    //Religion = cmbReligion.SelectedItem,
+                    //Email = txtEmail.Text,
+                    //Address = txtAddress.Text,
+                    //Phone = txtPhone.Text,
+                    //NPWP = txtNPWP.Text,
+                    //Bachelor = cmbBachelor.SelectedItem,
+                    //University = txtUniversity.Text,
+                    ////JoinDate = Convert.ToDateTime(dpJoinDate.SelectedDate).ToString("yyyy-MM-dd"), 
+                    //JoinDate = dpJoinDate.SelectedDate,
+                    //Departmen_Id = txtDepId.Text
                 });
             
             MessageBox.Show("Data Sucess Entering");
