@@ -211,12 +211,12 @@
                             </Grid.OpacityMask>
                             <Border x:Name="BorderG2" CornerRadius="15" Background="#FF340051"/>
 
-                            <MetroChart:RadialGaugeChart Background="{x:Null}" ChartTitle="Consumo" ChartSubTitle="" Foreground="LightGray" >
+                            <MetroChart:RadialGaugeChart Background="{x:Null}" ChartTitle="Employee" ChartSubTitle="" Foreground="LightGray" >
                                 <MetroChart:RadialGaugeChart.Series>
                                     <MetroChart:ChartSeries
                                         DisplayMember="Titulo"
-                                        ItemsSource="{Binding Path=Consumo}"
-                                        SeriesTitle="Consumo"
+                                        ItemsSource="{Binding Path=Employee}"
+                                        SeriesTitle="Employee"
                                         ValueMember="Porcentagem" HorizontalAlignment="Center"/>
                                 </MetroChart:RadialGaugeChart.Series>
                             </MetroChart:RadialGaugeChart>
@@ -246,45 +246,38 @@
             </Grid>
 
             <StackPanel Grid.Row="1">
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button x:Name="btnDataEmployee" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="DASHBOARD" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button x:Name="btnDataEmployee1" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="BtnDataEmployee1_Click">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="PERFIL" FontFamily="Champagne &amp; Limousines"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DATA EMPLOYEE" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button x:Name="btnDepartment" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="BtnDepartment_Click">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="TABELAS" FontFamily="Champagne &amp; Limousines"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DEPARTMENT" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
                 <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="TshirtCrew" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="PRODUTOS" FontFamily="Champagne &amp; Limousines"/>
+                        <TextBlock HorizontalAlignment="Center" Text="MANAGE USER" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
-                </Button>
-
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="TruckDelivery" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="FORNECEDORES" FontFamily="Champagne &amp; Limousines"/>
-                    </Grid>
-                </Button>
+                </Button>                
 
                 <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="CONFIGURAÇÕES" FontFamily="Champagne &amp; Limousines"/>
+                        <TextBlock HorizontalAlignment="Center" Text="SETTING" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
             </StackPanel>
@@ -298,7 +291,7 @@
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button x:Name="btnClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="BtnClose_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>

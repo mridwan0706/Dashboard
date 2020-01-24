@@ -48,15 +48,27 @@ namespace Dashboard1
 
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
 
-            var check = sqlCon.QueryAsync<Department>("exec SP_Insert_Department @id,@name",
-                new { id =txtID.Text, Name = txtName.Text});
+            var check = sqlCon.Execute("exec SP_Insert_Department @name",
+                new { Name = txtName.Text});
 
             MessageBox.Show("Data Entering");
 
 
         }
 
-     
+        private void DataDepartment_Loaded(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+
+            var check = sqlCon.QueryAsync<Department>("exec SP_Retrive_Department",
+                new
+                {
+
+                }).Result.ToList();
+
+            var grid = sender as DataGrid;
+            grid.ItemsSource = check;
+        }
     }
 
     internal class ConsumoViewModel

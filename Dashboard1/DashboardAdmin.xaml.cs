@@ -23,5 +23,21 @@ namespace Dashboard1
         {
             InitializeComponent();
         }
+        private void BtnDataEmployee1_Click(object sender, RoutedEventArgs e)
+        {
+            var DataEmploeyee = new ShowDataEmployee();
+            DataEmploeyee.Show();
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            var Department = new MainWindow();
+            Department.Show();
+        }
     }
 }

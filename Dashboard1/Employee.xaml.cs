@@ -36,10 +36,10 @@ namespace Dashboard1
 
             
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-            var check = sqlCon.QueryAsync<DataEmployee>("EXEC dbo.SP_Insert_Employee @idEmp,@nameEmp,@PlaceBirth,@BirthDate,@NIK,@Religion,@Email,@Address,@Phone,@NPWP,@Graduate,@JoinDate,@Status,@Departmen_Id",
+            var check = sqlCon.Execute("EXEC SP_Insert_Employee @Id,@Name,@PlaceBirth,@BirthDate,@NIK,@Religion,@Email,@Address,@Phone,@NPWP,@Graduate,@JoinDate,@Status,@Departmen_Id",
                 new {
-                    IdEmp = txtIdEmp.Text,
-                    EmployeeName = txtNameEmp.Text,
+                    Id = txtIdEmp.Text,
+                    Name = txtNameEmp.Text,
                     PlaceBirth = txtPlaceBirth.Text,
                     BirthDay = Convert.ToDateTime(dpBirthDay.SelectedDate).ToString("yyyy-MM-dd"),
                     NIK = txtNIK.Text,
@@ -55,6 +55,7 @@ namespace Dashboard1
                 });
             
             MessageBox.Show("Data Sucess Entering");
+            
            
         }
 

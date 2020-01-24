@@ -51,3 +51,5 @@ D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\DashboardAdmin.g.c
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\DashboardAdmin.baml
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\EmployeeWindow.g.cs
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\EmployeeWindow.baml
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\ShowDataEmployee.g.cs
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\ShowDataEmployee.baml

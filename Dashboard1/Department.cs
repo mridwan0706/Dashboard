@@ -10,7 +10,10 @@ namespace Dashboard1
 {
    public class Department
     {
-        public string id { get; set; }
+        
         public string Name { get; set; }
+        public string Manager { get; set; }
+        public string Division { get; set; }
+       
     }
 }

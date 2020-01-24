@@ -11,8 +11,8 @@ namespace Dashboard1
 {
     public  class DataEmployee 
     {
-        public string IdEmp{ get; set; }
-        public string EmployeeName { get; set; }
+        public string Id{ get; set; }
+        public string Name { get; set; }
         public string PlaceBirth { get; set; }
         public string BirthDate { get; set; }
         public string NIK { get; set; }

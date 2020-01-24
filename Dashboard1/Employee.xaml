@@ -197,7 +197,7 @@
         <TextBox x:Name="txtGraduate" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="201,341,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Background="#FFD8B0E4"/>
         <Label Content="Graduate" Grid.Column="1" HorizontalAlignment="Left" Margin="31,341,0,0" Grid.Row="1" VerticalAlignment="Top" Width="165" Height="35" FontFamily="Segoe UI Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="4.232,0.65"/>
         <Label Content="Join Date" Grid.Column="1" HorizontalAlignment="Left" Margin="449,345,0,0" Grid.Row="1" VerticalAlignment="Top" Width="108" Height="35" FontFamily="Segoe UI Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="4.232,0.65"/>
-        <Button x:Name="btnSave" Content="Save" Grid.Column="1" HorizontalAlignment="Left" Margin="467,71,0,-15" Grid.Row="2" Width="143" Height="Auto" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="BtnSave_Click"/>
+        <Button x:Name="btnSave" Content="Save" Grid.Column="1" HorizontalAlignment="Left" Margin="493,71,0,-15" Grid.Row="2" Width="143" Height="Auto" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="BtnSave_Click"/>
         <TextBox x:Name="txtIdEmp" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="114,68,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Background="#FFD8B0E4"/>
         <TextBox x:Name="txtDepId" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="575,397,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Background="#FFD8B0E4" Grid.RowSpan="2"/>
     </Grid>
