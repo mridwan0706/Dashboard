@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace Dashboard1
 {
     /// <summary>
@@ -50,14 +52,17 @@ namespace Dashboard1
             }
         }
 
-
+       
         private void BtnaddUser_Click(object sender, RoutedEventArgs e)
         {
+           
+
+            
             User param = new User()
             {
-                Username = userNamebox.Text,
-                Password = Passbox.Password,
-                Role = cmbRoleUser.SelectedValuePath
+                Username =userNamebox.Text,
+                Password = BCrypt.Net.BCrypt.HashString(Passbox.Password),
+                Role = cmbRoleUser.Text
 
             };
             DataService.InsertUser(param);
@@ -83,6 +88,15 @@ namespace Dashboard1
             Passbox.Password = (gridUser.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
             cmbRoleUser.Text = (gridUser.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
             
+
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            DataService.DeleteUser(Convert.ToInt16(IDbox.Text));
+            MessageBox.Show("Data Deleted Successfully");
+            EmptyDetail();
+            LoadGridCombo();
 
         }
     }

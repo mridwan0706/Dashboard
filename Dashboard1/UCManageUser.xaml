@@ -23,7 +23,7 @@
         <Label Content="Username" HorizontalAlignment="Left" Margin="37,107,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="37,148,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="Role" HorizontalAlignment="Left" Margin="40,193,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="0.559,1.639"/>
-        <Button x:Name="btnaddUser" Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="164,254,0,0" VerticalAlignment="Top" Width="115" Click="BtnaddUser_Click" />
+        <Button x:Name="btnaddUser" Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="144,248,0,0" VerticalAlignment="Top" Width="96" Click="BtnaddUser_Click" />
         <DataGrid x:Name="gridUser" HorizontalAlignment="Left" Height="355" Margin="10,45,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" Loaded="GridUser_Loaded" SelectedCellsChanged="GridUser_SelectedCellsChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
@@ -33,13 +33,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="countUser" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="40,215,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="IDbox" HorizontalAlignment="Left" Height="22" Margin="144,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Grid.Column="1"/>
+        <TextBox x:Name="IDbox" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="144,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Grid.Column="1" IsReadOnly="True"/>
         <TextBox x:Name="userNamebox" HorizontalAlignment="Left" Height="23" Margin="144,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Grid.Column="1"/>
         <ComboBox x:Name="cmbRoleUser" HorizontalAlignment="Left" Margin="144,189,0,0" VerticalAlignment="Top" Width="233" Grid.Column="1">
             <ComboBoxItem Content="Admin"/>
             <ComboBoxItem Content="User"/>
         </ComboBox>
         <PasswordBox x:Name="Passbox" HorizontalAlignment="Left" Margin="144,148,0,0" VerticalAlignment="Top" Grid.Column="1" Width="233"/>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="272,248,0,0" VerticalAlignment="Top" Width="105" Click="BtnDelete_Click"/>
     </Grid>
 
 </UserControl>

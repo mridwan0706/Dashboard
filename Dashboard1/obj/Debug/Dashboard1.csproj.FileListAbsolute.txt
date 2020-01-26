@@ -58,3 +58,5 @@ D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\Dashboard1.csprojA
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageUser.g.cs
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\bin\Debug\MaterialDesignColors.pdb
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageUser.baml
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\bin\Debug\BCrypt.Net.dll
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\bin\Debug\BCrypt.Net.xml
