@@ -17,6 +17,8 @@ using System.Configuration;
 
 
 
+
+
 namespace Dashboard1
 {
     /// <summary>
@@ -27,35 +29,37 @@ namespace Dashboard1
         public Employee()
         {
             InitializeComponent();
+          
         }
 
-       
+        
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-            var check = sqlCon.Execute("EXEC SP_Insert_Employee @Name,@PlaceBirth,@BirthDate,@NIK,@Religion,@Email,@Address,@Phone,@NPWP,@Bachelor,@University,@JoinDate,@Departmen_Id",
-                new {                    
-                    //Name = txtNameEmp.Text,
-                    //PlaceBirth = txtPlaceBirth.Text,
-                    ////BirthDay = Convert.ToDateTime(dpBirthDay.SelectedDate).ToString("yyyy-MM-dd"),
-                    //BirthDay = dpBirthDay.SelectedDate,
-                    //NIK = txtNIK.Text,
-                    //Religion = cmbReligion.SelectedItem,
-                    //Email = txtEmail.Text,
-                    //Address = txtAddress.Text,
-                    //Phone = txtPhone.Text,
-                    //NPWP = txtNPWP.Text,
-                    //Bachelor = cmbBachelor.SelectedItem,
-                    //University = txtUniversity.Text,
-                    ////JoinDate = Convert.ToDateTime(dpJoinDate.SelectedDate).ToString("yyyy-MM-dd"), 
-                    //JoinDate = dpJoinDate.SelectedDate,
-                    //Departmen_Id = txtDepId.Text
-                });
-            
-            MessageBox.Show("Data Sucess Entering");
+
+            //SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+
+            //var check = sqlCon.Execute("exec SP_Insert_Employee @Name,@PlaceBirth,@BirthDay,@NIK,@Regional,@Email,@Address,@Phone,@NPWP,@Bachelor,@University,@JoinDate,@Departmen_Id",
+            //    new
+            //    {
+            //        //name = txtNameEmp.Text,
+            //        //PlaceBirth = txtPlaceBirth.Text,
+            //        //BirthDate = dpBirthDay.SelectedDate,
+            //        //NIK = txtNIK.Text,
+            //        //Religion = cmbReligion.SelectedItem,
+            //        //Email = txtEmail.Text,
+            //        //Address = txtAddress.Text,
+            //        //Phone = txtPhone.Text,
+            //        //NPWP = txtNPWP.Text,
+            //        //Bachelor = cmbBachelor.Text,
+            //        //University = txtUniversity.Text,
+            //        //JoinDate = dpJoinDate.SelectedDate,
+            //        //Department_Id = 1                    
+            //    });
+
+
+            //MessageBox.Show("Data Sucess Entering");
             
            
         }
@@ -70,6 +74,6 @@ namespace Dashboard1
             this.Close();
         }
 
-       
+        
     }
 }

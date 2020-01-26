@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,16 +69,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="Ccoba.cs" />
     <Compile Include="DataEmployee.cs" />
     <Compile Include="DashboardAdmin.xaml.cs">
       <DependentUpon>DashboardAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentService.cs" />
+    <Compile Include="Division.cs" />
     <Compile Include="EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IDepartment.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="ShowDataEmployee.xaml.cs">
       <DependentUpon>ShowDataEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCManageData.xaml.cs">
+      <DependentUpon>UCManageData.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsLogin.xaml.cs">
       <DependentUpon>WindowsLogin.xaml</DependentUpon>
@@ -111,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ShowDataEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCManageData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

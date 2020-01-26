@@ -17,57 +17,129 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace Dashboard1
 {
-    /// <summary>
-    /// Interação lógica para MainWindow.xam
     /// </summary>
     public partial class MainWindow : Window
     {
+
+       
+
+        
         public MainWindow()
         {
             InitializeComponent();
 
             Consumo consumo = new Consumo();
             DataContext = new ConsumoViewModel(consumo);
-        }
 
-        private void ButtonFechar_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+           
 
-        private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
+      
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private void EmptyDetail()
+        //{
+        //    txtName.Text = "";
+        //    txtManager.Text = "";
+        //    CmbDivision.Text = "";
+        //}
+       
+
+        
+
+        //public void LoadGridCombo()
+        //{
+        //    try
+        //    {
+        //        CmbDivision.ItemsSource = DataService.GetAllDivision();
+        //        CmbDivision.DisplayMemberPath = "Name";
+        //        CmbDivision.SelectedValuePath = "Id";
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.Write(ex.InnerException);
+        //        Console.Write(ex.StackTrace);
+        //    }
+        //}
+
+        //private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Application.Current.Shutdown();
+        //}
+
+        //private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    DragMove();
+        //}
+
+        //private void DataDepartment_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+
+        //    var check = sqlCon.QueryAsync<Department>("exec SP_Retrive_Department",
+        //        new
+        //        {
+                    
+        //        }).Result.ToList();
+
             
+        //    var grid = sender as DataGrid;
+        //    grid.ItemsSource = check;
+        //}
 
-            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-
-            var check = sqlCon.Execute("exec SP_Insert_Department @name",
-                new { Name = txtName.Text});
-
-            MessageBox.Show("Data Entering");
+      
 
 
+
+        //private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        //{
+
+
+        //    SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+
+        //    var check = sqlCon.Execute("exec SP_Insert_Department @name,@Manager,@Division_Id",
+        //        new
+        //        {
+        //            Name = txtName.Text,
+        //            Manager = txtManager.Text,
+        //            DivisionId = CmbDivision.SelectedValue
+        //        });
+        //    LoadGridCombo();
+        //    EmptyDetail();
+
+
+
+        //}
+
+       
+        //private void DataDepartment_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        //{
+        //    object item = DataDepartment.SelectedItem;
+        //    txtName.Text = (DataDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+        //    txtManager.Text = (DataDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+        //    CmbDivision.Text = (DataDepartment.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+        //}
+
+        //private void CmbDivision_Loaded_1(object sender, RoutedEventArgs e)
+        //{
+        //    CmbDivision.ItemsSource = DataService.GetAllDivision();
+           
+           
+        //}
+
+        private void BtnManageData_Click(object sender, RoutedEventArgs e)
+        {
+            UCManageData manage = new UCManageData();
+            M_ManageData.Children.Clear();
+            M_ManageData.Children.Add(manage);
         }
 
-        private void DataDepartment_Loaded(object sender, RoutedEventArgs e)
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-
-            var check = sqlCon.QueryAsync<Department>("exec SP_Retrive_Department",
-                new
-                {
-
-                }).Result.ToList();
-
-            var grid = sender as DataGrid;
-            grid.ItemsSource = check;
+            this.Close();
         }
     }
 
