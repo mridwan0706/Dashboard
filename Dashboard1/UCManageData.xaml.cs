@@ -128,5 +128,18 @@ namespace Dashboard1
             EmptyDetail();
             LoadGridCombo();
         }
+
+        private void DepartmentId_Loaded(object sender, RoutedEventArgs e)
+        {
+            departmentId.ItemsSource = DataService.GetAllDept();
+            departmentId.DisplayMemberPath = "Name";
+            departmentId.SelectedValuePath = "Id";
+
+        }
+
+        private void DepartmentId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var getDepartment = Convert.ToInt16(departmentId.SelectedValue);
+        }
     }
 }

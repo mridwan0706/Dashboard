@@ -112,7 +112,7 @@
                         <Label Content="Employee Id" HorizontalAlignment="Left" Margin="40,19,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="idEmployee" HorizontalAlignment="Left" Height="23" Margin="155,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
                         <DatePicker x:Name="bDate" HorizontalAlignment="Left" Margin="157,138,0,0" VerticalAlignment="Top" Width="120"/>
-                        <ComboBox Name="departmentId" HorizontalAlignment="Left" Margin="525,160,0,0" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox Name="departmentId" HorizontalAlignment="Left" Margin="525,160,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" Loaded="DepartmentId_Loaded" SelectionChanged="DepartmentId_SelectionChanged" />
                         <DatePicker x:Name="joinDate" HorizontalAlignment="Left" Margin="525,130,0,0" VerticalAlignment="Top" Width="120"/>
                         <ComboBox Name="religion" ItemsSource="{Binding Path=Religion}" DisplayMemberPath="Religion" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="157,171,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4">
                             <ComboBox.Background>

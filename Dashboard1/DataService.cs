@@ -14,12 +14,23 @@ namespace Dashboard1
     {
 
     //TABEL DEPARTMENT
+    //WITH JOIN
        public static List<Department> GetAllDepartment()
         {
 
             using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
             {               
                 return sqlCon.QueryAsync<Department>("exec SP_Retrive_Department", new { }).Result.ToList();
+            }
+        }
+
+        //TANPA JOIN
+        public static List<Department> GetAllDept()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<Department>("exec SP_Retrive_Dept", new { }).Result.ToList();
             }
         }
         public static int Insert (Department department)
