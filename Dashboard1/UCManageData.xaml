@@ -17,29 +17,30 @@
                         <!--<RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>-->
                     </Grid.RowDefinitions>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="186" Margin="10,10,0,0" VerticalAlignment="Top" Width="789"/>
-                    <TextBox x:Name="IdBox" HorizontalAlignment="Left" Height="22" Margin="74,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
-                    <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="22" Margin="74,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" IsReadOnly="True"/>
-                    
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="202" Margin="10,10,0,0" VerticalAlignment="Top" Width="789"/>
+
                     <TextBox x:Name="ManagerBox" HorizontalAlignment="Left" Height="24" Margin="74,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
                     <ComboBox x:Name="cmbDivisi" HorizontalAlignment="Left" Margin="471,55,0,0" VerticalAlignment="Top" Width="306" ItemsSource="{Binding Path=getDivision}" DisplayMemberPath="Division" SelectedValuePath="DivisionId" SelectionChanged="CmbDivisi_SelectionChanged" Loaded="CmbDivisi_Loaded" />
                     <Label Content="Department Name :" HorizontalAlignment="Left" Margin="74,63,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold"/>
                     <Label Content="Manager Name :" HorizontalAlignment="Left" Margin="74,117,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold"/>
                     <Label Content="Division :" HorizontalAlignment="Left" Margin="471,28,0,0" VerticalAlignment="Top" Width="306" FontWeight="Bold"/>
                     <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="471,152,0,0" VerticalAlignment="Top" Width="87" Click="BtnSave_Click"/>
-                    <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="575,152,0,0" VerticalAlignment="Top" Width="91"/>
-                    <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="682,152,0,0" VerticalAlignment="Top" Width="95"/>
+                    <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="575,152,0,0" VerticalAlignment="Top" Width="91" Click="BtnUpdate_Click"/>
+                    <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="682,152,0,0" VerticalAlignment="Top" Width="95" Click="BtnDelete_Click"/>
                     <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="300" Margin="10,10,0,-63" Grid.Row="1" VerticalAlignment="Top" Width="789"/>
                     <DataGrid x:Name="GridDepartment" HorizontalAlignment="Left" Height="236" Margin="26,62,0,-51" Grid.Row="1" VerticalAlignment="Top" Width="751" AutoGenerateColumns="False" Loaded="GridDepartment_Loaded" SelectedCellsChanged="GridDepartment_SelectedCellsChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nama" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Department Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Manager" Binding="{Binding Path=Manager}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Division" Binding="{Binding Path=Division}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="DATA DEPARTMENT" HorizontalAlignment="Left" Margin="26,23,0,0" VerticalAlignment="Top" Width="274" Grid.Row="1" FontWeight="Bold" FontSize="12" FontStyle="Italic"/>
-                    
+
                     <Label Content="ID :" HorizontalAlignment="Left" Margin="74,13,0,0" VerticalAlignment="Top" Width="274" FontWeight="Bold"/>
+                    <TextBox x:Name="IdBox" HorizontalAlignment="Left" Height="23" Margin="74,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" IsReadOnly="True" IsEnabled="False"/>
+                    <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="74,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
 
                 </Grid>
 
@@ -52,42 +53,99 @@
                     <GradientStop Color="#FFE0EEF1" Offset="1"/>
                 </LinearGradientBrush>
             </TabItem.Background>
+            <ScrollViewer Margin="0,10,0,-3">
 
-            <ScrollViewer Margin="0,10,0,390">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="200"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid Margin="25" Height="120">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 20"/>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20" Cursor="Hand"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Grid Margin="25" Height="120">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30"/>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <Grid Margin="25" Height="120">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30"/>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="580" Height="510">
 
+                    <Grid Grid.Row="1" Margin="0,0,-18,0">
+                        <Rectangle Margin="5,36,25,21" Fill="White" RadiusY="10" RadiusX="10" >
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <DataGrid Name="dataGridEmployee" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Height="228" Width="789" Foreground="Black">
+                            <!--<DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Employee ID" Width="95"/>
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding Path=Department}" Header="Department" Width="100"/>
+                            </DataGrid.Columns>-->
 
+                        </DataGrid>
+                    </Grid>
+                    <Grid Grid.Row="0" Margin="0,0,-18,0" >
+                        <Rectangle Margin="10,0,25,-15" Fill="White" RadiusY="10" RadiusX="10" >
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Label Content="Name" HorizontalAlignment="Left" Margin="40,47,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="nameEmployee" HorizontalAlignment="Left" Height="23" Margin="155,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="NIK" HorizontalAlignment="Left" Margin="40,78,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="nik" HorizontalAlignment="Left" Height="23" Margin="155,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Birth Place" HorizontalAlignment="Left" Margin="40,109,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="bPlace" HorizontalAlignment="Left" Height="23" Margin="155,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Birth Date" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Religion" HorizontalAlignment="Left" Margin="40,171,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Graduate" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top"/>
+                        <Label Content="University" HorizontalAlignment="Left" Margin="40,233,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="university" HorizontalAlignment="Left" Height="23" Margin="155,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Phone" HorizontalAlignment="Left" Margin="408,20,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="523,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Email" HorizontalAlignment="Left" Margin="408,48,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="523,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="NPWP" HorizontalAlignment="Left" Margin="408,76,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="npwp" HorizontalAlignment="Left" Height="23" Margin="523,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Address" HorizontalAlignment="Left" Margin="408,104,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="address" HorizontalAlignment="Left" Height="23" Margin="523,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Join Date" HorizontalAlignment="Left" Margin="408,132,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Department" HorizontalAlignment="Left" Margin="408,160,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Job Title Name" HorizontalAlignment="Left" Margin="408,188,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Jobtitle" HorizontalAlignment="Left" Height="23" Margin="523,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+
+                        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Margin="459,224,0,0" VerticalAlignment="Top" Width="75" Background="#FF2196F3" />
+                        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="538,224,0,0" VerticalAlignment="Top" Width="78" Background="#FF2196F3" />
+                        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="620,224,0,0" VerticalAlignment="Top" Width="76" Background="#FF2196F3"/>
+                        <Label Content="Employee Id" HorizontalAlignment="Left" Margin="40,19,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="idEmployee" HorizontalAlignment="Left" Height="23" Margin="155,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
+                        <DatePicker x:Name="bDate" HorizontalAlignment="Left" Margin="157,138,0,0" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox Name="departmentId" HorizontalAlignment="Left" Margin="525,160,0,0" VerticalAlignment="Top" Width="120"/>
+                        <DatePicker x:Name="joinDate" HorizontalAlignment="Left" Margin="525,130,0,0" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox Name="religion" ItemsSource="{Binding Path=Religion}" DisplayMemberPath="Religion" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="157,171,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4">
+                            <ComboBox.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="WhiteSmoke" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Background>
+                            <!--<ComboBoxItem IsSelected="True"  Content="Islam"></ComboBoxItem>
+                            <ComboBoxItem>Kristen</ComboBoxItem>
+                            <ComboBoxItem>Katolik</ComboBoxItem>
+                            <ComboBoxItem>Hindu</ComboBoxItem>
+                            <ComboBoxItem>Buddha</ComboBoxItem>
+                            <ComboBoxItem>Konghucu</ComboBoxItem>-->
+                        </ComboBox>
+                        <ComboBox Name="graduate" HorizontalAlignment="Left" Margin="157,202,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4">
+                            <ComboBox.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="WhiteSmoke" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Background>
+                            <ComboBoxItem>SMA</ComboBoxItem>
+                            <ComboBoxItem>SMK</ComboBoxItem>
+                            <ComboBoxItem>D3</ComboBoxItem>
+                            <ComboBoxItem>D4</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True" >S1</ComboBoxItem>
+                            <ComboBoxItem>S2</ComboBoxItem>
+                            <ComboBoxItem>S3</ComboBoxItem>
+                        </ComboBox>
                     </Grid>
                 </Grid>
+
             </ScrollViewer>
         </TabItem>
     </TabControl>

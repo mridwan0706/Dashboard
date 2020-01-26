@@ -31,7 +31,7 @@ namespace Dashboard1
             }
         }
 
-        public int Update(int id, Department department)
+        public static int Update(int id, Department department)
         {
             using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
             {
@@ -39,13 +39,23 @@ namespace Dashboard1
             }
         }
 
+        public static int Delete(int id)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.Execute("exec SP_Delete_Department @id", new { Id = id});
+            }
+        }
 
-        public static List<Division> GetDivision(string DivisionName)
+
+
+        //Tabel Division
+        public static List<Department> GetAllDivision()
         {
 
             using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
             {
-                return sqlCon.QueryAsync<Division>("exec SP_GetDivision @name", new { Name = DivisionName }).Result.ToList();
+                return sqlCon.QueryAsync<Department>("exec SP_Retrieve_Division", new { }).Result.ToList();
             }
         }
 
@@ -72,7 +82,42 @@ namespace Dashboard1
 
         //}
 
-        //TABEL EMPLOYEE
+        //TABEL USER
+
+        //TABEL DEPARTMENT
+        public static List<User> GetAllUser()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<User>("exec SP_Retrive_User", new { }).Result.ToList();
+            }
+        }
+        public static int InsertUser(User user)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                var affectedRow = sqlCon.Execute("exec SP_Insert_User @Username,@Password,@Role", new { Username = user.Username, Password = user.Password, Role = user.Role });
+                return affectedRow;
+            }
+        }
+
+        public static int UpdateUser(int id, User user)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.Execute("exec SP_Update_User @id,@Username,@Password,@Role", new { Id = id, Username = user.Username, Password = user.Password, Role = user.Role });
+            }
+        }
+
+        public static int DeleteUser(int id)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.Execute("exec SP_Delete_User @id", new { Id = id });
+            }
+        }
+
 
 
 

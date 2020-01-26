@@ -55,3 +55,6 @@ D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\ShowDataEmployee.b
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageData.g.cs
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageData.baml
 D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\Dashboard1.csprojAssemblyReference.cache
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageUser.g.cs
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\bin\Debug\MaterialDesignColors.pdb
+D:\Bootcamp\Visual Studio\DashboardAdmin\Dashboard1\obj\Debug\UCManageUser.baml

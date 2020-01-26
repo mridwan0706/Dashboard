@@ -30,21 +30,20 @@ namespace Dashboard1
 
         private void EmptyDetail()
         {
+            IdBox.Text = "";
             NameBox.Text = "";
             ManagerBox.Text = "";
             cmbDivisi.Text = "";
         }
-
-
-
-
+       
         public void LoadGridCombo()
         {
             try
             {
-                cmbDivisi.ItemsSource = DataService.GetAllDepartment();
-                cmbDivisi.DisplayMemberPath = "Division";
-                cmbDivisi.SelectedValuePath = "DivisionId";
+                GridDepartment.ItemsSource = DataService.GetAllDepartment();
+                cmbDivisi.ItemsSource = DataService.GetAllDivision();
+                cmbDivisi.DisplayMemberPath = "Name";
+                cmbDivisi.SelectedValuePath = "Id";
 
             }
             catch (Exception ex)
@@ -72,9 +71,10 @@ namespace Dashboard1
         private void GridDepartment_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             object item = GridDepartment.SelectedItem;
-            NameBox.Text = (GridDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-            ManagerBox.Text = (GridDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-            cmbDivisi.Text = (GridDepartment.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            IdBox.Text = (GridDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            NameBox.Text = (GridDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            ManagerBox.Text = (GridDepartment.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            cmbDivisi.Text = (GridDepartment.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
         }
 
         private void CmbDivisi_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,9 +85,9 @@ namespace Dashboard1
 
         private void CmbDivisi_Loaded(object sender, RoutedEventArgs e)
         {
-            cmbDivisi.ItemsSource = DataService.GetAllDepartment();
-            cmbDivisi.DisplayMemberPath = "Division";
-            cmbDivisi.SelectedValuePath = "DivisionId";
+            cmbDivisi.ItemsSource = DataService.GetAllDivision();
+            cmbDivisi.DisplayMemberPath = "Name";
+            cmbDivisi.SelectedValuePath = "Id";
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -100,12 +100,33 @@ namespace Dashboard1
           
             };
             DataService.Insert(param);
-            LoadGridCombo();
+            MessageBox.Show("Data Saved Successfully");            
             EmptyDetail();
+            LoadGridCombo();
 
         }
 
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Department param = new Department()
+            {
+                Name = NameBox.Text,
+                Manager = ManagerBox.Text,
+                DivisionId = Convert.ToInt16(cmbDivisi.SelectedValue)
 
+            };
+            DataService.Update(Convert.ToInt16(IdBox.Text), param);
+            MessageBox.Show("Data Updated Successfully");
+            EmptyDetail();
+            LoadGridCombo();
+        }
 
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            DataService.Delete(Convert.ToInt16(IdBox.Text));
+            MessageBox.Show("Data Deleted Successfully");
+            EmptyDetail();
+            LoadGridCombo();
+        }
     }
 }

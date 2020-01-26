@@ -135,11 +135,20 @@ namespace Dashboard1
             UCManageData manage = new UCManageData();
             M_ManageData.Children.Clear();
             M_ManageData.Children.Add(manage);
+           
+
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnProfil_Click(object sender, RoutedEventArgs e)
+        {
+            UCManageUser manage = new UCManageUser();
+            M_ManageData.Children.Clear();
+            M_ManageData.Children.Add(manage);
         }
     }
 
