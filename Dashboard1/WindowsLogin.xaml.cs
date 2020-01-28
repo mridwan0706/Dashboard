@@ -29,26 +29,19 @@ namespace Dashboard1
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            
-
-                SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
-
-                var check = sqlCon.QueryAsync<Login>("exec SP_Retrieve_Login @Username,@Password ",
+            string myPassword = PasswordBox.Password;          
+            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+            var getPassword = sqlCon.Query<User>("exec SP_Retrieve_Login @Username",
                     new
-                    {
-                        Username = Username.Text,
-                        Password = Password.Password
-                    }).Result.SingleOrDefault();
-
-                if (check != null)
-                {
-                    MessageBox.Show("Sucessfull");
+                    { Username = UsernameBox.Text}).SingleOrDefault();
+            var result = BCrypt.Net.BCrypt.Verify(myPassword, getPassword.Password);
+            if (result)
+            {
+                MessageBox.Show("Sucessfull");
                 var dashboard = new MainWindow();
                 dashboard.Show();
                 Close();
-
-
-                }
+            }              
                 else
                 {
                     MessageBox.Show("Username Or Password Incorrected");

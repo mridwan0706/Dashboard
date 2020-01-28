@@ -108,8 +108,8 @@ namespace Dashboard1
         {
             using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
             {
-                var affectedRow = sqlCon.Execute("exec SP_Insert_User @Username,@Password,@Role", new { Username = user.Username, Password = user.Password, Role = user.Role });
-                return affectedRow;
+                return sqlCon.Execute("exec SP_Insert_User @Username,@Password,@Role", new { Username = user.Username, Password = user.Password, Role = user.Role });
+                
             }
         }
 
@@ -128,6 +128,59 @@ namespace Dashboard1
                 return sqlCon.Execute("exec SP_Delete_User @id", new { Id = id });
             }
         }
+
+        //TABEL RELIGION
+        public static List<Religion> GetAllReligion()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<Religion>("exec SP_Retrive_Religion", new { }).Result.ToList();
+            }
+        }
+
+        //TABEL DEGREE
+        public static List<Degree> GetAllDegree()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<Degree>("exec SP_Retrive_Degree", new { }).Result.ToList();
+            }
+        }
+
+
+        //TABEL Province
+        public static List<Province> GetAllProvince()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<Province>("exec SP_Retrive_Province", new { }).Result.ToList();
+            }
+        }
+
+
+        //TABEL JOBTITLE
+        public static List<Jobtitle> GetAllJobtitle()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<Jobtitle>("exec SP_Retrive_Jobtitle", new { }).Result.ToList();
+            }
+        }
+
+        //TABEL EMPLOYEE
+        public static List<DataEmployee> GetAllEmployee()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString))
+            {
+                return sqlCon.QueryAsync<DataEmployee>("exec SP_Retrive_Employee", new { }).Result.ToList();
+            }
+        }
+
 
 
 

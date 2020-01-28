@@ -81,13 +81,18 @@
     <Compile Include="DashboardAdmin.xaml.cs">
       <DependentUpon>DashboardAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Degree.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="Division.cs" />
     <Compile Include="EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="IDepartment.cs" />
+    <Compile Include="Jobtitle.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="Province.cs" />
+    <Compile Include="Regency.cs" />
+    <Compile Include="Religion.cs" />
     <Compile Include="ShowDataEmployee.xaml.cs">
       <DependentUpon>ShowDataEmployee.xaml</DependentUpon>
     </Compile>

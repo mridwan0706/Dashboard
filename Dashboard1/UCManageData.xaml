@@ -62,59 +62,76 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="1" Margin="0,0,-18,0">
-                        <Rectangle Margin="5,36,25,21" Fill="White" RadiusY="10" RadiusX="10" >
+                        <Rectangle Margin="5,85,25,21" Fill="White" RadiusY="10" RadiusX="10" >
                             <Rectangle.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                             </Rectangle.Effect>
                         </Rectangle>
-                        <DataGrid Name="dataGridEmployee" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Height="228" Width="789" Foreground="Black">
-                            <!--<DataGrid.Columns>
+                        <DataGrid Name="dataGridEmployee" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Height="179" Width="789" Foreground="Black" Loaded="DataGridEmployee_Loaded" SelectedCellsChanged="DataGridEmployee_SelectedCellsChanged">
+                            <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Path=Id}" Header="Employee ID" Width="95"/>
-                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding Path=Department}" Header="Department" Width="100"/>
-                            </DataGrid.Columns>-->
+                                <DataGridTextColumn Binding="{Binding Path=Employee_Name}" Header="Employee_Name" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding Path=NIK}" Header="NIK" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=PlaceBirth}" Header="PlaceBirth" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=BirthDate }" Header="BirthDate " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=University }" Header="University " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Phone }" Header="Phone " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Email }" Header="Email " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=NPWP }" Header="NPWP " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Address }" Header="Address " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=JoinDate }" Header="JoinDate " Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Province_Id}" Header="Province_Id" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Regency_Id}" Header="Regency_Id" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Religion_Id}" Header="Religion_Id" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Departmen_Id}" Header="Departmen_Id" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=Jobtitle_id}" Header=" Jobtitle_id" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Path=_Degree}" Header="Degree_id" Width="100"/>
+
+                            </DataGrid.Columns>
 
                         </DataGrid>
                     </Grid>
                     <Grid Grid.Row="0" Margin="0,0,-18,0" >
-                        <Rectangle Margin="10,0,25,-15" Fill="White" RadiusY="10" RadiusX="10" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="105*"/>
+                            <RowDefinition Height="179*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Margin="10,0,25,-62" Fill="White" RadiusY="10" RadiusX="10" Grid.RowSpan="2" >
                             <Rectangle.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                             </Rectangle.Effect>
                         </Rectangle>
                         <Label Content="Name" HorizontalAlignment="Left" Margin="40,47,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="nameEmployee" HorizontalAlignment="Left" Height="23" Margin="155,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
+                        <TextBox x:Name="txtEmpName" HorizontalAlignment="Left" Height="23" Margin="155,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
                         <Label Content="NIK" HorizontalAlignment="Left" Margin="40,78,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="nik" HorizontalAlignment="Left" Height="23" Margin="155,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-                        <Label Content="Birth Place" HorizontalAlignment="Left" Margin="40,109,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="bPlace" HorizontalAlignment="Left" Height="23" Margin="155,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-                        <Label Content="Birth Date" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Religion" HorizontalAlignment="Left" Margin="40,171,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Graduate" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top"/>
-                        <Label Content="University" HorizontalAlignment="Left" Margin="40,233,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="university" HorizontalAlignment="Left" Height="23" Margin="155,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <TextBox x:Name="txtNIK" HorizontalAlignment="Left" Height="23" Margin="155,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Birth Place" HorizontalAlignment="Left" Margin="40,4,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <TextBox x:Name="txtBirthPlace" HorizontalAlignment="Left" Height="23" Margin="155,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122" Grid.Row="1"/>
+                        <Label Content="Birth Date" HorizontalAlignment="Left" Margin="40,35,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label Content="Religion" HorizontalAlignment="Left" Margin="40,66,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label x:Name="lblDegre" Content="Degre" HorizontalAlignment="Left" Margin="48,96,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label Content="University" HorizontalAlignment="Left" Margin="40,128,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <TextBox x:Name="txtUniversity" HorizontalAlignment="Left" Height="23" Margin="155,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122" Grid.Row="1"/>
                         <Label Content="Phone" HorizontalAlignment="Left" Margin="408,20,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="523,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="523,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
                         <Label Content="Email" HorizontalAlignment="Left" Margin="408,48,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="523,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="523,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
                         <Label Content="NPWP" HorizontalAlignment="Left" Margin="408,76,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="npwp" HorizontalAlignment="Left" Height="23" Margin="523,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-                        <Label Content="Address" HorizontalAlignment="Left" Margin="408,104,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="address" HorizontalAlignment="Left" Height="23" Margin="523,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-                        <Label Content="Join Date" HorizontalAlignment="Left" Margin="408,132,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Department" HorizontalAlignment="Left" Margin="408,160,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Job Title Name" HorizontalAlignment="Left" Margin="408,188,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="Jobtitle" HorizontalAlignment="Left" Height="23" Margin="523,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-
-                        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Margin="459,224,0,0" VerticalAlignment="Top" Width="75" Background="#FF2196F3" />
-                        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="538,224,0,0" VerticalAlignment="Top" Width="78" Background="#FF2196F3" />
-                        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="620,224,0,0" VerticalAlignment="Top" Width="76" Background="#FF2196F3"/>
+                        <TextBox x:Name="txtNPWP" HorizontalAlignment="Left" Height="23" Margin="523,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+                        <Label Content="Address" HorizontalAlignment="Left" Margin="408,104,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+                        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" Margin="523,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122" Grid.RowSpan="2"/>
+                        <Label Content="Join Date" HorizontalAlignment="Left" Margin="408,90,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label Content="Department" HorizontalAlignment="Left" Margin="408,118,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label Content="Job Title Name" HorizontalAlignment="Left" Margin="408,149,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Margin="448,183,0,-36" VerticalAlignment="Top" Width="75" Background="#FF2196F3" Click="ButtonSave_Click" Grid.Row="1" />
+                        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="527,183,0,-36" VerticalAlignment="Top" Width="78" Background="#FF2196F3" Grid.Row="1" />
+                        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="609,183,0,-36" VerticalAlignment="Top" Width="76" Background="#FF2196F3" Grid.Row="1"/>
                         <Label Content="Employee Id" HorizontalAlignment="Left" Margin="40,19,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="idEmployee" HorizontalAlignment="Left" Height="23" Margin="155,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
-                        <DatePicker x:Name="bDate" HorizontalAlignment="Left" Margin="157,138,0,0" VerticalAlignment="Top" Width="120"/>
-                        <ComboBox Name="departmentId" HorizontalAlignment="Left" Margin="525,160,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" Loaded="DepartmentId_Loaded" SelectionChanged="DepartmentId_SelectionChanged" />
-                        <DatePicker x:Name="joinDate" HorizontalAlignment="Left" Margin="525,130,0,0" VerticalAlignment="Top" Width="120"/>
-                        <ComboBox Name="religion" ItemsSource="{Binding Path=Religion}" DisplayMemberPath="Religion" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="157,171,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4">
+                        <TextBox x:Name="txtIdEmp" HorizontalAlignment="Left" Height="23" Margin="155,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" IsEnabled="False" IsReadOnly="True"/>
+                        <DatePicker x:Name="dpBirthDate" HorizontalAlignment="Left" Margin="157,33,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+                        <ComboBox x:Name="cmbDepartment" HorizontalAlignment="Left" Margin="525,118,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" Loaded="DepartmentId_Loaded" SelectionChanged="DepartmentId_SelectionChanged" Grid.Row="1" />
+                        <DatePicker x:Name="dpJoinDate" HorizontalAlignment="Left" Margin="525,88,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+                        <ComboBox x:Name="cmbReligion" ItemsSource="{Binding Path=getReligion}" DisplayMemberPath="Religion_Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="157,66,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4" Loaded="CmbReligion_Loaded" SelectionChanged="CmbReligion_SelectionChanged" Grid.Row="1"  >
                             <ComboBox.Background>
                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -128,22 +145,21 @@
                             <ComboBoxItem>Buddha</ComboBoxItem>
                             <ComboBoxItem>Konghucu</ComboBoxItem>-->
                         </ComboBox>
-                        <ComboBox Name="graduate" HorizontalAlignment="Left" Margin="157,202,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4">
+                        <ComboBox x:Name="txtDegree" ItemsSource="{Binding Path=getDegree}" DisplayMemberPath="Degree_Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="157,97,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89B4B4B4" SelectionChanged="TxtDegree_SelectionChanged" Loaded="TxtDegree_Loaded" Grid.Row="1"  >
                             <ComboBox.Background>
                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
                                     <GradientStop Color="WhiteSmoke" Offset="1"/>
                                 </LinearGradientBrush>
                             </ComboBox.Background>
-                            <ComboBoxItem>SMA</ComboBoxItem>
-                            <ComboBoxItem>SMK</ComboBoxItem>
-                            <ComboBoxItem>D3</ComboBoxItem>
-                            <ComboBoxItem>D4</ComboBoxItem>
-                            <ComboBoxItem IsSelected="True" >S1</ComboBoxItem>
-                            <ComboBoxItem>S2</ComboBoxItem>
-                            <ComboBoxItem>S3</ComboBoxItem>
+
                         </ComboBox>
+                        <Label Content="Province" HorizontalAlignment="Left" Margin="408,33,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <Label Content="Regency" HorizontalAlignment="Left" Margin="408,65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                        <ComboBox x:Name="cmbRegency" ItemsSource="{Binding Path=getRegency}" DisplayMemberPath="Regency_Name"  SelectedValuePath="Id" HorizontalAlignment="Left" Margin="523,64,0,0" VerticalAlignment="Top" Width="122" Height="21" Loaded="CmbRegency_Loaded" Grid.Row="1"/>
+                        <ComboBox x:Name="cmbProvence" ItemsSource="{Binding Path=getProvince}" DisplayMemberPath="Province_Name"  SelectedValuePath="Id" HorizontalAlignment="Left" Margin="523,35,0,0" VerticalAlignment="Top" Width="122" Loaded="CmbProvence_Loaded" SelectionChanged="CmbProvence_SelectionChanged" Grid.Row="1"/>
                     </Grid>
+                    <ComboBox x:Name="cmbJobTitle" ItemsSource="{Binding Path=getJobtitle}" DisplayMemberPath="Jobtitle_Name"  SelectedValuePath="Id" HorizontalAlignment="Left" Margin="523,250,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbJobTitle_SelectionChanged" Loaded="CmbJobTitle_Loaded"/>
                 </Grid>
 
             </ScrollViewer>

@@ -20,8 +20,8 @@
         <CheckBox Content="Rembember me" HorizontalAlignment="Left" Margin="76,371,0,0" VerticalAlignment="Top" Width="159" Height="34" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalContentAlignment="Center" Checked="CheckBox_Checked" Foreground="#FFF1EBEB"/>-->
 
         </StackPanel>
-        <TextBox Name="Username" TextWrapping="Wrap" Margin="82,229,79,309" SelectionBrush="#FF0A88D1"/>
-        <PasswordBox Name="Password" HorizontalAlignment="Left"  Margin="83,298,0,0" VerticalAlignment="Top" Width="281" Height="37"/>
+        <TextBox Name="UsernameBox" TextWrapping="Wrap" Margin="82,229,79,309" SelectionBrush="#FF0A88D1"/>
+        <PasswordBox Name="PasswordBox" HorizontalAlignment="Left"  Margin="83,298,0,0" VerticalAlignment="Top" Width="281" Height="37"/>
         <CheckBox Content="Rembember me" HorizontalAlignment="Left" Margin="82,349,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-3.667"/>
         <Label Content="Password " HorizontalAlignment="Left" Margin="82,271,0,0" VerticalAlignment="Top" Foreground="#FF131010"/>
         <Label Content="E-Mail" HorizontalAlignment="Left" Margin="82,203,0,0" VerticalAlignment="Top" Foreground="#FF131010"/>

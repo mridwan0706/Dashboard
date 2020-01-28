@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dapper;
+using System.Data.SqlClient;
+using System.Configuration;
 
 
 
@@ -27,6 +30,7 @@ namespace Dashboard1
             InitializeComponent();
         }
 
+        
         private void EmptyDetail()
         {
             IDbox.Text = "";
@@ -55,20 +59,40 @@ namespace Dashboard1
        
         private void BtnaddUser_Click(object sender, RoutedEventArgs e)
         {
-           
 
-            
-            User param = new User()
+            //string myPassword = Passbox.Password;
+            //string mySalt = BCrypt.Net.BCrypt.GenerateSalt();
+            //string myHash = BCrypt.Net.BCrypt.HashPassword(myPassword, mySalt);
+
+
+            //User param = new User()
+            //{
+            //    Username = userNamebox.Text,
+            //    Password = myHash,
+            //    Role = cmbRoleUser.Text
+
+            //};
+            //DataService.InsertUser(param);
+            //MessageBox.Show("Data Saved Successfully");
+            //EmptyDetail();
+            //LoadGridCombo();
+
+
+            string myPassword = Passbox.Password;
+            string mySalt = BCrypt.Net.BCrypt.GenerateSalt();
+            string myHash = BCrypt.Net.BCrypt.HashPassword(myPassword, mySalt);
+            SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConection"].ConnectionString);
+            var affectedRows = sqlCon.Execute("INSERT INTO TB_M_User (Username,Password,Role) VALUES (@Username, @Password,@Role)", new { Username = userNamebox.Text, Password = myHash ,Role=cmbRoleUser.Text});
+            if (affectedRows < 0)
             {
-                Username =userNamebox.Text,
-                Password = BCrypt.Net.BCrypt.HashString(Passbox.Password),
-                Role = cmbRoleUser.Text
-
-            };
-            DataService.InsertUser(param);
-            MessageBox.Show("Data Saved Successfully");
-            EmptyDetail();
-            LoadGridCombo();
+                MessageBox.Show("Failed to Register");
+            }
+            else
+            {
+                MessageBox.Show("Success to Register");
+                EmptyDetail();
+                LoadGridCombo();
+            }
 
         }
 

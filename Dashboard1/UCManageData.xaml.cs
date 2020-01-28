@@ -131,15 +131,91 @@ namespace Dashboard1
 
         private void DepartmentId_Loaded(object sender, RoutedEventArgs e)
         {
-            departmentId.ItemsSource = DataService.GetAllDept();
-            departmentId.DisplayMemberPath = "Name";
-            departmentId.SelectedValuePath = "Id";
+            cmbDepartment.ItemsSource = DataService.GetAllDept();
+            cmbDepartment.DisplayMemberPath = "Name";
+            cmbDepartment.SelectedValuePath = "Id";
 
         }
 
         private void DepartmentId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var getDepartment = Convert.ToInt16(departmentId.SelectedValue);
+            var getDepartment = Convert.ToInt16(cmbDepartment.SelectedValue);
+        }
+
+        private void CmbReligion_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbReligion.ItemsSource = DataService.GetAllReligion();
+            cmbReligion.DisplayMemberPath = "Religion_Name";
+            cmbReligion.SelectedValuePath = "Id";
+        }
+
+        private void CmbReligion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var getReligion = Convert.ToInt16(cmbReligion.SelectedValue);
+        }
+
+
+        private void TxtDegree_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var getDegree = Convert.ToInt16(txtDegree.SelectedValue);
+        }
+
+        private void TxtDegree_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtDegree.ItemsSource = DataService.GetAllDegree();
+            txtDegree.DisplayMemberPath = "Degree_Name";
+            txtDegree.SelectedValuePath = "Id";
+        }
+
+        private void CmbProvence_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbProvence.ItemsSource = DataService.GetAllProvince();
+            cmbProvence.DisplayMemberPath = "Province_Name";
+            cmbProvence.SelectedValuePath = "Id";
+        }
+
+        private void CmbProvence_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var getProvince = Convert.ToInt16(cmbProvence.SelectedValue);
+        }
+
+        private void CmbJobTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var getJobtitle = Convert.ToString(cmbJobTitle.SelectedValue);
+        }
+
+        private void CmbJobTitle_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbJobTitle.ItemsSource = DataService.GetAllJobtitle();
+            cmbJobTitle.DisplayMemberPath = "Jobtitle_Name";
+            cmbJobTitle.SelectedValuePath = "Id";
+        }
+
+        private void DataGridEmployee_Loaded(object sender, RoutedEventArgs e)
+        {
+            var data = DataService.GetAllEmployee();
+            var grid = sender as DataGrid;
+            grid.ItemsSource = data;
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGridEmployee_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            object item = dataGridEmployee.SelectedItem;
+            IdBox.Text = (GridDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            NameBox.Text = (GridDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            ManagerBox.Text = (GridDepartment.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            cmbDivisi.Text = (GridDepartment.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+
+        }
+
+        private void CmbRegency_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
